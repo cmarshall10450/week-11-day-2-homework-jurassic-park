@@ -45,11 +45,13 @@ describe('Park', () => {
     assert.deepStrictEqual(actual, [dinosaur1])
   })
 
-  it('should calculate number of dinosaurs after a 3 years', () => {
-    const dinosaur = new Dinosaur('Velociraptor', 5)
-    park.addDinosaur(dinosaur)
+  it('should calculate number of dinosaurs after a 2 years', () => {
+    const dinosaur1 = new Dinosaur('Velociraptor', 5)
+    const dinosaur2 = new Dinosaur('Stegasaurus', 1)
+    park.addDinosaur(dinosaur1)
+    park.addDinosaur(dinosaur2)
 
-    const actual = park.getNumberOfDinosaursAfter(3)
-    assert.strictEqual(actual, 16)
+    const actual = park.getNumberOfDinosaursAfter(2)
+    assert.strictEqual(actual, 19)
   })
 })
