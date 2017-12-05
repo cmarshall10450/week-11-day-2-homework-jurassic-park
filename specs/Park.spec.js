@@ -52,6 +52,6 @@ describe('Park', () => {
     park.addDinosaur(dinosaur2)
 
     const actual = park.getNumberOfDinosaursAfter(2)
-    assert.strictEqual(actual, 19)
+    assert.strictEqual(actual, 14)
   })
 })
