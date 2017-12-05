@@ -40,8 +40,16 @@ describe('Park', () => {
     park.addDinosaur(dinosaur1)
     park.addDinosaur(dinosaur2)
 
-    const expected = park.getDinosaursWithOffSpringGreaterThan(2)
+    const actual = park.getDinosaursWithOffSpringGreaterThan(2)
 
-    assert.deepStrictEqual(expected, [dinosaur1])
+    assert.deepStrictEqual(actual, [dinosaur1])
+  })
+
+  it('should calculate number of dinosaurs after a 3 years', () => {
+    const dinosaur = new Dinosaur('Velociraptor', 5)
+    park.addDinosaur(dinosaur)
+
+    const actual = park.getNumberOfDinosaursAfter(3)
+    assert.strictEqual(actual, 16)
   })
 })
