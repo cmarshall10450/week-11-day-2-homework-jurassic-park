@@ -15,4 +15,8 @@ Park.prototype.removeByType = function (type) {
   }
 }
 
+Park.prototype.getDinosaursWithOffSpringGreaterThan = function (num) {
+  return this.enclosure.filter(dinosaur => dinosaur.offspring > num)
+}
+
 module.exports = Park

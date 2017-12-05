@@ -9,19 +9,17 @@ describe('Park', () => {
     park = new Park()
   })
 
-  it('should start with an empty enclosure', (done) => {
+  it('should start with an empty enclosure', () => {
     assert.deepStrictEqual(park.enclosure, [])
-    done()
   })
 
-  it('should be able to add a dinosaur', (done) => {
+  it('should be able to add a dinosaur', () => {
     const dinosaur = new Dinosaur('Velociraptor', 5)
     park.addDinosaur(dinosaur)
     assert.deepStrictEqual(park.enclosure, [dinosaur])
-    done()
   })
 
-  it('should be able to remove all dinosaurs of a certain type', (done) => {
+  it('should be able to remove all dinosaurs of a certain type', () => {
     const dinosaur1 = new Dinosaur('Velociraptor', 5)
     const dinosaur2 = new Dinosaur('Stegasaurus', 10)
 
@@ -33,6 +31,17 @@ describe('Park', () => {
     park.removeByType('Velociraptor')
 
     assert.deepStrictEqual(park.enclosure, [dinosaur2])
-    done()
+  })
+
+  it('should get dinosaurs with offspring count of more than 2', () => {
+    const dinosaur1 = new Dinosaur('Velociraptor', 5)
+    const dinosaur2 = new Dinosaur('Stegasaurus', 1)
+
+    park.addDinosaur(dinosaur1)
+    park.addDinosaur(dinosaur2)
+
+    const expected = park.getDinosaursWithOffSpringGreaterThan(2)
+
+    assert.deepStrictEqual(expected, [dinosaur1])
   })
 })
